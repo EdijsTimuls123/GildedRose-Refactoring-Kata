@@ -1,2 +1,0 @@
-# GildedRose-Refactoring-Kata
-Homework
