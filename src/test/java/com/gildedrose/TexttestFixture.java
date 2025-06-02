@@ -18,9 +18,7 @@ public class TexttestFixture {
         List<Item> items = List.of(
             new Item("Aged Brie", 2, 0),
             new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
-            new Item("Sulfuras, Hand of Ragnaros", 0, 80),
-            new Item("Conjured Mana Cake", 3, 6)
-        );
+            new Item("Sulfuras, Hand of Ragnaros", 0, 80));
 
         GildedRose app = new GildedRose(items.toArray(new Item[0]));
 

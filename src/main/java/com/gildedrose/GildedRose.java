@@ -18,7 +18,6 @@ public class GildedRose {
         updaterMap.put(ItemType.AGED_BRIE, new AgedBrieUpdater());
         updaterMap.put(ItemType.SULFURAS, new SulfurasUpdater());
         updaterMap.put(ItemType.BACKSTAGE_PASS, new BackstagePassUpdater());
-        updaterMap.put(ItemType.CONJURED, new ConjuredItemUpdater());
     }
 
     public void updateQuality() {

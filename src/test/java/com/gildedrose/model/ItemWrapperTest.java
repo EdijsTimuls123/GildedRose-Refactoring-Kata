@@ -42,28 +42,41 @@ class ItemWrapperTest {
     }
 
     @Test
-    void increaseQuality_doesNotExceed50() {
-        Item item = new Item("Test Item", 5, 49);
-        ItemWrapper wrapper = new ItemWrapper(item);
-
-        wrapper.increaseQuality(5);
-        assertEquals(50, wrapper.getQuality());
-    }
-
-    @Test
-    void decreaseQuality_doesNotGoBelow0() {
-        Item item = new Item("Test Item", 5, 1);
-        ItemWrapper wrapper = new ItemWrapper(item);
-
-        wrapper.decreaseQuality(3);
-        assertEquals(0, wrapper.getQuality());
-    }
-
-    @Test
     void getItem_returnsOriginalItem() {
         Item item = new Item("Test Item", 5, 10);
         ItemWrapper wrapper = new ItemWrapper(item);
 
         assertSame(item, wrapper.getItem());
+    }
+
+    @Test
+    void itemWrapperProperlyWrapsAndMutatesItem() {
+        Item item = new Item("Test Item", 10, 20);
+        ItemWrapper wrapper = new ItemWrapper(item);
+
+        wrapper.decreaseSellIn(1);
+        wrapper.increaseQuality(5);
+        wrapper.decreaseQuality(3);
+
+        assertAll(
+            () -> assertEquals("Test Item", wrapper.getName()),
+            () -> assertEquals(9, wrapper.getSellIn()),
+            () -> assertEquals(22, wrapper.getQuality()),
+            () -> assertEquals("Test Item", item.name),
+            () -> assertEquals(9, item.sellIn),
+            () -> assertEquals(22, item.quality)
+        );
+    }
+
+    @Test
+    void itemWrapperEnforcesQualityBounds() {
+        Item item = new Item("Quality Bounds", 5, 49);
+        ItemWrapper wrapper = new ItemWrapper(item);
+
+        wrapper.increaseQuality(5); // should cap at 50
+        assertEquals(50, wrapper.getQuality());
+
+        wrapper.decreaseQuality(55); // should not go below 0
+        assertEquals(0, wrapper.getQuality());
     }
 }

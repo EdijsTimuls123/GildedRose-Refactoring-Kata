@@ -3,8 +3,7 @@ package com.gildedrose.model;
 public enum ItemType {
     AGED_BRIE("Aged Brie"),
     SULFURAS("Sulfuras, Hand of Ragnaros"),
-    BACKSTAGE_PASS("Backstage passes to a TAFKAL80ETC concert"),
-    CONJURED("Conjured");
+    BACKSTAGE_PASS("Backstage passes to a TAFKAL80ETC concert");
 
     private final String name;
 
