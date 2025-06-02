@@ -10,10 +10,10 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
         <junit.jupiter.version>5.8.2</junit.jupiter.version>
-        <maven.maven-compiler-plugin.version>3.1</maven.maven-compiler-plugin.version>
-        <maven.maven-surefire-plugin.version>3.0.0-M4</maven.maven-surefire-plugin.version>
+        <maven.compiler.plugin.version>3.10.1</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>3.0.0-M7</maven.surefire.plugin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
@@ -30,15 +30,16 @@
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.maven-compiler-plugin.version}</version>
+                <version>${maven.compiler.plugin.version}</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                    <release>${java.version}</release> <!-- added for better compatibility -->
                 </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven.maven-surefire-plugin.version}</version>
+                <version>${maven.surefire.plugin.version}</version>
             </plugin>
         </plugins>
     </build>
