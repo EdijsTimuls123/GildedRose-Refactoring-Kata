@@ -24,7 +24,7 @@ public class TexttestFixture {
 
         GildedRose app = new GildedRose(items.toArray(new Item[0]));
 
-        for (int day = 0; day < days; day++) {
+        for (int day = 1; day <= days; day++) {
             System.out.println("-------- day " + day + " --------");
             System.out.println("name, sellIn, quality");
             for (Item item : items) {
